@@ -31,7 +31,6 @@
 
 ### How to run
 ```bash
-cd ng-video-lecture
 python gpt.py
 ```
 
