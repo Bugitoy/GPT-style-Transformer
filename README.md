@@ -178,4 +178,20 @@ That wha
 - **0.209729 M parameters** (example): Total trainable parameters in millions.
 - Tip: Convert loss to perplexity as `perplexity = exp(loss)`; e.g., val loss 1.82 ≈ perplexity 6.17.
 
+### Key figures and configuration
+
+- **Vocabulary size (|V|)**: number of unique characters in `input.txt` (computed at runtime as `len(set(text))`). With tiny Shakespeare it is typically ~65.
+- **Context length**: `block_size = 256` (max characters the model conditions on).
+- **Batch size**: `batch_size = 64` sequences per optimization step.
+- **Tokens per step**: `batch_size × block_size = 16,384` characters/step.
+- **Model size**: ~0.210M parameters with defaults (printed at startup).
+- **Embedding dimension**: `n_embd = 384`.
+- **Attention heads**: `n_head = 6` (head size = `n_embd / n_head = 64`).
+- **Transformer layers**: `n_layer = 6`.
+- **Dropout**: `dropout = 0.2`.
+- **Learning rate / Optimizer**: `learning_rate = 3e-4`, `AdamW`.
+- **Train/Val split**: 90% / 10% of the character stream.
+- **Eval cadence**: `eval_interval = 500`, `eval_iters = 200`.
+- **Device**: uses CUDA if available, else CPU.
+
 
