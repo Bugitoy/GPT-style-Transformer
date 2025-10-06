@@ -170,4 +170,12 @@ HENRY BOLINGBROY:
 That wha
 ```
 
+### Interpreting the metrics
+
+- **step N**: Training iteration index; each step = forward + backward + optimizer update.
+- **train loss**: Average cross-entropy on sampled training batches (lower is better).
+- **val loss**: Average cross-entropy on held-out validation batches (tracks generalization).
+- **0.209729 M parameters** (example): Total trainable parameters in millions.
+- Tip: Convert loss to perplexity as `perplexity = exp(loss)`; e.g., val loss 1.82 ≈ perplexity 6.17.
+
 
